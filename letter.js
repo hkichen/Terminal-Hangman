@@ -21,7 +21,7 @@ var Letter = function(secretletter){
 //tests
 var newLetter = new Letter("x");
 newLetter.guessedLetter("T");
-
+ 
 
 
 //export this baby
