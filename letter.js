@@ -1,19 +1,28 @@
-function Letter(character, show) {
-    this.character = character;
-    this.show = false;
+var Letter = function(secretletter){
 
-    this.characterToShow = function() {
-        if (this.show === true){
-            return console.log(this.character);
-        }else {
-            return console.log("-");
+	this.secretLetter = secretletter;
+    this.revealLetter = false;
+    
+	this.guessedLetter = function(guess){
+		if(this.secretLetter === guess){
+			return console.log(this.secretletter); 
+			return this.revealLetter = true;
+		}else {
+			return this.revealLetter = false;
+            console.log("_");
         }
     }
+    
+	this.letterShows = function(){
+		return this.current;
+	}
 };
 
+//tests
+var newLetter = new Letter("x");
+newLetter.guessedLetter("T");
+
+
+
+//export this baby
 module.exports = Letter;
-
-//this constructor takes in a letter, and if it is true, will display leter, if false, will display a dash
-
-var guess = new Letter("m", true);
-guess.characterToShow();
