@@ -1,10 +1,12 @@
+//a constructor to display letters depending on matching guess to secret letters
+
 var Letter = function(secretLetters){
-	this.current = "_"
+	this.display = "_"
 	this.secretLetters = secretLetters;
 	this.showsLetter = false;
 
 	this.correctLetterCheck = function(guess){
-		if(this.secretLetters == guess){
+		if(this.secretLetters === guess){
 			this.current = this.secretLetters; 
 			return true;
 		}
@@ -12,7 +14,7 @@ var Letter = function(secretLetters){
 	}
 
 	this.letterDisplay = function(){
-		return this.current;
+		return this.display;
 	}
 };
 
