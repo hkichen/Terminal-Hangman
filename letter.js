@@ -1,23 +1,20 @@
-var Letter = function(secreLetter){
-
+var Letter = function(secretLetters){
 	this.current = "_"
-	this.secreLetter = secreLetter;
-	
+	this.secretLetters = secretLetters;
 	this.showsLetter = false;
-	this.letterMatch = function(guessedLetter){
-		if(this.secreLetter == guessedLetter){
-			this.current = this.secreLetter; 
+
+	this.correctLetterCheck = function(guess){
+		if(this.secretLetters == guess){
+			this.current = this.secretLetters; 
 			return true;
 		}
 			return false;
 	}
 
-    this.letterDisplay = function(){
+	this.letterDisplay = function(){
 		return this.current;
 	}
 };
- 
-
 
 //export this baby
 module.exports = Letter;

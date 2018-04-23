@@ -1,0 +1,23 @@
+{
+  "name": "terminal-hangman",
+  "version": "1.0.0",
+  "description": "a hangman game you can play in your terminal/console",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkichen/Terminal-Hangman.git"
+  },
+  "author": "Lina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hkichen/Terminal-Hangman/issues"
+  },
+  "homepage": "https://github.com/hkichen/Terminal-Hangman#readme",
+  "dependencies": {
+    "inquirer": "^5.2.0",
+    "prompt": "^1.0.0"
+  }
+}
