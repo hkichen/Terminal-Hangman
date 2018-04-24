@@ -14,8 +14,18 @@ var Word = function(secretWord){
 				letters[i].changeDisplay();
 			}
 		}
+		return letterMatched;
 	}
-	return letterMatched;
+	
+	this.checkWordCompletion = function(letters) {
+		var completed = true;
+		for (var i = 0; i < this,secretWord.length; i++) {
+			if (letters[i].display === "_") {
+				completed = false;
+			}
+		}
+		return completed; 
+	}
 }	
 
 module.exports = Word;
