@@ -28,4 +28,7 @@ var Word = function(word){
 	}
 }	
 
+//var newWord = new Word("apple");
+//console.log(newWord)
+
 module.exports = Word;

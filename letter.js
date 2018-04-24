@@ -13,5 +13,8 @@ var Letter = function(secretLetters){
 	}
 };
 
+//var p = new Letter("p");
+//console.log(p)
+
 //export this baby
 module.exports = Letter;
