@@ -5,7 +5,7 @@ var Letter = require('./letter.js');
 var Word = function(word){
 	this.word = word;
 
-	//check if letters match
+	//check if letter match secret letter
 	this.matchLetters = function(secretLetter, letters) {
 		var letterMatched = false;
 		for (var i = 0; i < this.word.length; i++) {
