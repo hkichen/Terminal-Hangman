@@ -2,14 +2,14 @@
 var Letter = require('./letter.js');
 
 //constructor to get letters, match letters
-var Word = function(secretWord){
-	this.secretWord = secretWord;
+var Word = function(word){
+	this.word = word;
 
 	//check if letters match
 	this.matchLetters = function(secretLetter, letters) {
 		var letterMatched = false;
-		for (var i = 0; i < this.secretWord.length; i++) {
-			if(this.secretWord.charAt(i).toLowerCase() === secretletter.toLowerCase()) {
+		for (var i = 0; i < this.word.length; i++) {
+			if(this.word.charAt(i).toLowerCase() === secretletter.toLowerCase()) {
 				letterMatched = true;
 				letters[i].changeDisplay();
 			}
@@ -19,7 +19,7 @@ var Word = function(secretWord){
 	
 	this.checkWordCompletion = function(letters) {
 		var completed = true;
-		for (var i = 0; i < this,secretWord.length; i++) {
+		for (var i = 0; i < this,word.length; i++) {
 			if (letters[i].display === "_") {
 				completed = false;
 			}
