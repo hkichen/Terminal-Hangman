@@ -1,34 +1,27 @@
-//require letters
-var Letter = require('./letter.js');
-
-//constructor to get letters, match letters
-var Word = function(word){
+//constructor function for the Word object
+function Word(word) {
 	this.word = word;
-
-	//check if letter match secret letter
-	this.matchLetters = function(secretLetter, letters) {
-		var letterMatched = false;
-		for (var i = 0; i < this.word.length; i++) {
-			if(this.word.charAt(i).toLowerCase() === secretletter.toLowerCase()) {
-				letterMatched = true;
-				letters[i].changeDisplay();
-			}
+	//checks to see if the letter guessed is in the word, and calls the method to change the shown character if it is
+	this.checkLetter = function(letter, letters) {
+	  var letterFound = false;
+	  for (var i=0; i<this.word.length; i++) {
+		if (this.word.charAt(i).toLowerCase() == letter.toLowerCase()) {
+		  letterFound = true;
+		  letters[i].changeShown();
 		}
-		return letterMatched;
+	  }
+	  return letterFound;
 	}
-	
-	this.checkWordCompletion = function(letters) {
-		var completed = true;
-		for (var i = 0; i < this,word.length; i++) {
-			if (letters[i].display === "_") {
-				completed = false;
-			}
+	//checks to see if the word has been solved by checking to see if all the shown characters are letters
+	this.checkIfSolved = function(letters) {
+	  var solved = true;
+	  for (var i=0; i<this.word.length; i++) {
+		if (letters[i].shown == '_') {
+		  solved = false;
 		}
-		return completed; 
+	  }
+	  return solved;
 	}
-}	
-
-//var newWord = new Word("apple");
-//console.log(newWord)
-
-module.exports = Word;
+  }
+  
+  module.exports = Word;

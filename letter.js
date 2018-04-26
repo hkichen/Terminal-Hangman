@@ -1,20 +1,16 @@
-//a constructor to display letters depending on matching guess to secret letters
+//constructor function for the Letter object
+function Letter(letter) {
+	this.letter = letter;
+	this.shown = "_";
 
-var Letter = function(secretLetters){
-	this.display = "_"
-	this.secretLetters = secretLetters;
-	
+	//returns the character to be printed to the console
 	this.displayLetter = function() {
-		return this.display;
+	  return this.shown;
 	}
-
-	this.changeDisplay = function(){
-		this.display = secretLetters;
+	//changes the temporary character being shown to the actual letter
+	this.changeShown = function() {
+	  this.shown = letter;
 	}
-};
-
-//var p = new Letter("p");
-//console.log(p)
-
-//export this baby
-module.exports = Letter;
+  }
+  
+  module.exports = Letter;

@@ -1,17 +1,12 @@
-var Word = require("./word.js")
-///make array of words to choose from
-//choose word and turn it into the new word
+var Word = require("./word.js");
 
-var selectWord = function(){
-    var choices = ["antelope", "gazelle", "ibis", "newt", "salamander", "toad", "leopard", "catfish", "platypus", "bison", "cormorant", "hyena", "mongoose"];
+module.exports = {
+  //selects a random word from the array of words and returns it as a Word object
+  selectWord : function() {
+    var words = ["antelope", "gazelle", "ibis", "newt", "salamander", "toad", "leopard", "catfish", "platypus", "bison", "cormorant", "hyena", "mongoose"];
+    var num = Math.floor(Math.random() * 5);
+    var word = new Word(words[num]);
+    return word;
+  }
+};
 
-    var randomWord = choices[Math.floor(Math.random() * choices.length)];
-    console.log(randomWord);
-
-    var chosenWord = new Word(randomWord);
-}
-
-//selectWord();
-
-
-module.exports = selectWord;
