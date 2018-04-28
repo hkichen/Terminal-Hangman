@@ -10,16 +10,19 @@ Copy and download the repository. You will need to make a JSON package and insta
 
 # Screen Caps
 Starting Hangman:
+
 ![alt text](https://github.com/hkichen/Terminal-Hangman/blob/master/images/hangman1.PNG)
 
 Making letter guesses:
+
 ![alt text](https://github.com/hkichen/Terminal-Hangman/blob/master/images/hangman2.PNG)
 
 Completing the secret word:
+
 ![alt text](https://github.com/hkichen/Terminal-Hangman/blob/master/images/hangman3.PNG)
 
 # Packages
 - npm Inquirer
 
-#Problemshooting
+# Problemshooting
 The game works for one round, but it currently does not take in any command to start a new game without having to rerun "node index.js"; This will be a fix coming in the near future.
