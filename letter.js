@@ -2,15 +2,15 @@
 function Letter(letter) {
 	this.letter = letter;
 	this.shown = "_";
-
+	
 	//returns the character to be printed to the console
 	this.displayLetter = function() {
-	  return this.shown;
+		return this.shown;
 	}
-	//changes the temporary character being shown to the actual letter
+	//changes temp character to the actual letter
 	this.changeShown = function() {
-	  this.shown = letter;
+		this.shown = letter;
 	}
-  }
-  
-  module.exports = Letter;
+}
+
+module.exports = Letter;

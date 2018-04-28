@@ -42,7 +42,7 @@ function makeGuess() {
             inquirer.prompt(
                 {
                     name: "replay",
-                    message: "Do you want to play again? (answer yes or no)",
+                    message: "Do you want to play again? (answer yes or no)\n",
                 }
             ).then(function(answer) {
                 if (answer === "yes") {

@@ -1,27 +1,28 @@
-//constructor function for the Word object
 function Word(word) {
 	this.word = word;
-	//checks to see if the letter guessed is in the word, and calls the method to change the shown character if it is
+	
+	//checks if letter guessed matches, if letterfound, then change the display
 	this.checkLetter = function(letter, letters) {
-	  var letterFound = false;
-	  for (var i=0; i<this.word.length; i++) {
-		if (this.word.charAt(i).toLowerCase() == letter.toLowerCase()) {
-		  letterFound = true;
-		  letters[i].changeShown();
+		var letterFound = false;
+		for (var i=0; i<this.word.length; i++) {
+			if (this.word.charAt(i).toLowerCase() == letter.toLowerCase()) {
+				letterFound = true;
+				letters[i].changeShown();
+			}
 		}
-	  }
-	  return letterFound;
+		return letterFound;
 	}
-	//checks to see if the word has been solved by checking to see if all the shown characters are letters
+	
+	//checking for word completion, if all shown are actually letters
 	this.checkIfSolved = function(letters) {
-	  var solved = true;
-	  for (var i=0; i<this.word.length; i++) {
-		if (letters[i].shown == '_') {
-		  solved = false;
+		var solved = true;
+		for (var i=0; i<this.word.length; i++) {
+			if (letters[i].shown == "_") {
+				solved = false;
+			}
 		}
-	  }
-	  return solved;
+		return solved;
 	}
-  }
-  
-  module.exports = Word;
+}
+
+module.exports = Word;
