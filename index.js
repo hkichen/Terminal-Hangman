@@ -2,16 +2,17 @@ var inquirer = require("inquirer");
 var game = require("./selectWord.js");
 var Letter = require("./letter.js");
 
+var letters = [];
 var word = game.selectWord();
 var selectedWord = word.word;
-var letters = [];
-for (var i=0; i<selectedWord.length; i++) {
-  letters.push(new Letter(selectedWord.charAt(i)));
-}
 var guessesRemaining = 10;
+
+for (var i=0; i<selectedWord.length; i++) {
+    letters.push(new Letter(selectedWord.charAt(i)));
+}
+ 
 makeGuess();
 
-//recursive function that gets called as long as the word has not been guessed and there are guesses left
 function makeGuess() {
     displayWord();
     inquirer.prompt(
@@ -21,23 +22,23 @@ function makeGuess() {
         }
     ).then(function(answer) {
         if (word.checkLetter(answer.letter, letters) == true) {
-            console.log("Nice!");
+            console.log("\nNice!");
         }else {
             guessesRemaining--;
             if (guessesRemaining > 0) {
-                console.log("Nope! You have " + guessesRemaining + " guesses left.");
+                console.log("\nNope! You have " + guessesRemaining + " guesses left.");
             }else {
-                console.log("Oh, no! You're out of guesses. Game over!");
+                console.log("\nOh, no! You're out of guesses. Game over!");
             }
         }
         
         if (word.checkIfSolved(letters) == false) {
             if (guessesRemaining > 0) {
-            makeGuess();
+                makeGuess();
             }
         }else {
             displayWord();
-            console.log("Ayyy! You win!");
+            console.log("\nAyyy! You win!");
             inquirer.prompt(
                 {
                     name: "replay",
@@ -45,10 +46,17 @@ function makeGuess() {
                 }
             ).then(function(answer) {
                 if (answer === "yes") {
+                    letters = [];
+                    word = game.selectWord();
+                    selectedWord = word.word;
+                    guessesRemaining = 10;
+                    for (var i=0; i<selectedWord.length; i++) {
+                        letters.push(new Letter(selectedWord.charAt(i)));
+                    }
                     makeGuess();
                 }
                 if (answer === "no") {
-                    console.log("Ok, thanks for playing! Bye!:-)")
+                    return console.log("Ok, thanks for playing! Bye!:-)")
                 }
             })
         }
@@ -57,7 +65,7 @@ function makeGuess() {
 
 function displayWord() {
     var displayedWord = "";
-    for (var i=0; i<letters.length; i++) {
+    for (var i=0; i < letters.length; i++) {
         displayedWord += letters[i].displayLetter();
         displayedWord += " ";
     }
